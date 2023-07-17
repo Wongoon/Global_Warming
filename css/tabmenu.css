@@ -1,0 +1,32 @@
+@import url(reset.css);
+ul.tabmenu{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    background: var(--header-clr);
+}
+ul.tabmenu li.tablink{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 5vw;
+    border: 3px solid transparent;
+    border-bottom-color: var(--text-clr);
+    cursor: pointer;
+    transition: border-bottom-color 0.3s ease;
+    margin: 0 5vw;
+}
+ul.tabmenu li.tablink ion-icon{
+    color: var(--text-clr);
+    font-size: 3vw;
+    transition: color 0.3s ease;
+}
+ul.tabmenu li.tablink.current,
+ul.tabmenu li.tablink:hover{
+    border-bottom-color: var(--primary-clr);
+}
+ul.tabmenu li.tablink.current ion-icon,
+ul.tabmenu li.tablink:hover ion-icon{
+    color: var(--primary-clr);
+}

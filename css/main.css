@@ -1,0 +1,25 @@
+@import url(reset.css);
+.contents{
+    width: 100vw;
+    min-height: calc(100vh - 5vw);
+}
+.content{
+    display: none;
+    width: 100vw;
+    height: calc(100vh - 5vw);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.content.current{
+    display: flex;
+}
+div#tab1 .title{
+    font-size: 5vw;
+}
+div#tab1 .subtitle{
+    font-size: 2vw;
+}
+.content canvas{
+    transition: none;
+}
