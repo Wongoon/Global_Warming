@@ -21,7 +21,17 @@
             <span class="subtitle">지구 온난화의 원인인 물질의 연도별 변화와 그로 인한 영향</span>
         </div>
         <div class="content" id="tab2">
-            <canvas id="temperature_graph_by_earth"></canvas>
+            <ul class="tabmenu_in earth">
+                <li class="tablink_in earth_link current" data-tab="earth_graph">월별</li>
+                <li class="tablink_in earth_link" data-tab="earth">연도별</li>
+            </ul>
+            <div class="main earth_main current" id="earth_graph">
+                <canvas id="temperature_graph_by_earth"></canvas>
+            </div>
+            <div class="main earth_main" id="earth">
+                <canvas id="temperature_by_earth"></canvas>
+            </div>
+            
         </div>
         <div class="content" id="tab3">
             <ul class="tabmenu_in temperature">
@@ -57,6 +67,7 @@
     <script src="https://unpkg.com/chartjs-chart-geo@3.5.2/build/index.umd.min.js"></script>
     <script>
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/GlobalTemperaturesByYear.csv').then(TemperatureGraphbyEarth);
+        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/GlobalTemperaturesByCountry.csv').then(TemperaturebyEarth);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/SeoulTemperaturesByMonth.csv').then(TemperatureGraphbySeoulMonth);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/SeoulTemperaturesByYear.csv').then(TemperatureGraphbySeoulYear);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Month.csv').then(GreenhouseGraphbyMonth);

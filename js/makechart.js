@@ -50,6 +50,131 @@ function TemperatureGraphbyEarth(csvdata) {
     });
 }
 
+function TemperatureMap(csvdata) {
+    const url = "https://unpkg.com/world-atlas@2.0.2/countries-50m.json";
+    fetch(url).then(result => result.json()).then((datapoint) => {
+        const countries = ChartGeo.topojson.feature(datapoint, datapoint.objects.countries).features;
+        const countrylist = countries.map(country => country.properties.name);
+        let max = 0;
+        const m = new Map();
+        for (let i of countrylist) {
+            let t = 0;
+            for (let j of csvdata) {
+                if (i == j.Country) {
+                    let num = Math.round(j.AverageTemperature * 1000) / 1000;
+                    t = i;
+                    m.set(i, num);
+                    if(max < num) {
+                        max = num;
+                    }
+                }
+            }
+            if (t === 0) m.set(i, 0);
+        }
+        const data = {
+            labels: countrylist,
+            datasets: [
+                {
+                    label: '국가',
+                    data: countries.map(country => ({ feature: country, value: m.get(country.properties.name) })),
+                    hoverBackgroundColor: '#695cfeff',
+                }
+            ]
+        };
+        const ctx = document.getElementById('temperature_by_earth');
+        const chart = new Chart(ctx, {
+            type: 'choropleth',
+            data,
+            options: {
+                showOutline: true,
+                showGraticule: true,
+                scales: {
+                    xy: {
+                        projection: 'equalEarth'
+                    },
+                    color: {
+                        interpolate: (v) => {
+                            if(v / max * 100 < 0.05){
+                                return '#f8f8ff';
+                            }
+                            else if(v / max * 100 < 0.1){
+                                return '#f2f1ff';
+                            }
+                            else if(v / max * 100 < 0.15){
+                                return '#eceaff';
+                            }
+                            else if(v / max * 100 < 0.2){
+                                return '#e5e2ff';
+                            }
+                            else if(v / max * 100 < 0.25){
+                                return '#dedbff';
+                            }
+                            else if(v / max * 100 < 0.3){
+                                return '#d7d3ff';
+                            }
+                            else if(v / max * 100 < 0.35){
+                                return '#d0cbfe';
+                            }
+                            else if(v / max * 100 < 0.4){
+                                return '#c9c4ff';
+                            }
+                            else if(v / max * 100 < 0.45){
+                                return '#c2bdff';
+                            }
+                            else if(v / max * 100 < 0.5){
+                                return '#bdb7ff';
+                            }
+                            else if(v / max * 100 < 0.55){
+                                return '#b7b0ff';
+                            }
+                            else if(v / max * 100 < 0.6){
+                                return '#aea7fe';
+                            }
+                            else if(v / max * 100 < 0.65){
+                                return '#a7a0fe';
+                            }
+                            else if(v / max * 100 < 0.7){
+                                return '#a198fe';
+                            }
+                            else if(v / max * 100 < 0.75){
+                                return '#9c93ff';
+                            }
+                            else if(v / max * 100 < 0.8){
+                                return '#938afe';
+                            }
+                            else if(v / max * 100 < 0.85){
+                                return '#8c82fe';
+                            }
+                            else if(v / max * 100 < 0.9){
+                                return '#857bfe';
+                            }
+                            else if(v / max * 100 < 0.95){
+                                return '#8176ff';
+                            }
+                            else{
+                                return '#786cfe';
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: 'Surface Temperature Change by Country',
+                        font: {
+                            family: 'Pretendard',
+                            size: 16
+                        }
+                    }
+                }
+            }
+        });
+    });
+}
+
 function TemperatureGraphbySeoulMonth(csvdata) {
     const label = csvdata.map(d => d.date);
     const data = csvdata.map(d => d.Temperature);
