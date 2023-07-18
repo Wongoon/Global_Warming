@@ -21,8 +21,7 @@ div#tab1 .subtitle{
     font-size: 2vw;
 }
 .content canvas{
-    width: 90vw;
-    margin: 0 10px;
+    margin: 0 4vw;
 }
 
 .content .main{
@@ -34,4 +33,7 @@ div#tab1 .subtitle{
 }
 .content .main.current{
     display: flex;
+}
+.content .main canvas{
+    margin: 0 10vw;
 }
