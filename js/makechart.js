@@ -352,98 +352,11 @@ function GreenhouseGraphbyMonth(csvdata) {
                         size: '25vw'
                     }
                 }
-            },
-            scales: {
-                y: {
-                    stacked: true,
-                }
             }
         },
     });
 }
 
-// function GreenhouseGraphbyYear(csvdata) {
-//     const label = Array.from(new Set(csvdata.map(d => d.year)));
-//     function data(str) {
-//         const d = csvdata.map(function (d) {
-//             if (d.category == str) return d.value;
-//             else return 2e9;
-//         });
-//         const a = d.filter(x => x < 2e9);
-//         const m = Math.max(...a);
-//         const b = a.map(x => x / m * 100);
-//         return b;
-//     }
-//     const ctx = document.getElementById('greenhousegas_graph_by_year');
-//     const chart = new Chart(ctx, {
-//         // type: 'bar',
-//         type: 'line',
-//         data: {
-//             labels: label,
-//             datasets: [
-//                 {
-//                     label: 'CO2',
-//                     data: data('CO2'),
-//                     borderColor: '#ff5555ff',
-//                     backgroundColor: '#ff5555db',
-//                 },
-//                 {
-//                     label: 'CH4',
-//                     data: data('CH4'),
-//                     borderColor: '#55ff55ff',
-//                     backgroundColor: '#55ff55db',
-//                 },
-//                 {
-//                     label: 'N2O',
-//                     data: data('N2O'),
-//                     borderColor: '#5555ffff',
-//                     backgroundColor: '#5555ffdb',
-//                 },
-//                 {
-//                     label: 'SF6',
-//                     data: data('SF6'),
-//                     borderColor: '#555555ff',
-//                     backgroundColor: '#555555db',
-//                 }
-//             ]
-//         },
-//         options: {
-//             interaction: {
-//                 mode: 'nearest',
-//                 axis: 'x',
-//                 intersect: false
-//             },
-//             responsive: true,
-//             plugins: {
-//                 legend: {
-//                     position: 'top',
-//                     labels: {
-//                         font: {
-//                             family: 'Pretendard',
-//                             size: '15vw'
-//                         }
-//                     }
-//                 },
-//                 title: {
-//                     display: true,
-//                     text: 'Greenhouse Gas Change by Year',
-//                     font: {
-//                         family: 'Pretendard',
-//                         size: '25vw'
-//                     }
-//                 }
-//             },
-//             scales: {
-//                 // x: {
-//                 //     stacked: true,
-//                 // },
-//                 // y: {
-//                 //     stacked: true,
-//                 // }
-//             }
-//         },
-//     });
-// }
 function GreenhouseGraphbyYear(csvdata) {
     const label = Array.from(new Set(csvdata.map(d => d.year)));
     function data(str) {
@@ -458,7 +371,7 @@ function GreenhouseGraphbyYear(csvdata) {
     }
     const ctx = document.getElementById('greenhousegas_graph_by_year');
     const chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: label,
             datasets: [
@@ -477,8 +390,8 @@ function GreenhouseGraphbyYear(csvdata) {
                 {
                     label: 'N2O',
                     data: data('N2O'),
-                    borderColor: '#ffff00ff',
-                    backgroundColor: '#ffff00db',
+                    borderColor: '#dddd00ff',
+                    backgroundColor: '#dddd00db',
                 },
                 {
                     label: 'HFCs',
@@ -501,8 +414,8 @@ function GreenhouseGraphbyYear(csvdata) {
                 {
                     label: 'NF3',
                     data: data('NF3'),
-                    borderColor: '#4b5582ff',
-                    backgroundColor: '#4b5582db',
+                    borderColor: '#800080ff',
+                    backgroundColor: '#800080db',
                 }
             ]
         },
@@ -530,14 +443,6 @@ function GreenhouseGraphbyYear(csvdata) {
                         family: 'Pretendard',
                         size: '25vw'
                     }
-                }
-            },
-            scales: {
-                x: {
-                    stacked: true,
-                },
-                y: {
-                    stacked: true,
                 }
             }
         },
