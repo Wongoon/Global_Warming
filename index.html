@@ -10,8 +10,9 @@
 <body>
     <ul class="tabmenu">
         <li class="tablink current" data-tab="tab1"><ion-icon name="home-outline"></ion-icon></li>
-        <li class="tablink" data-tab="tab2"><ion-icon name="thermometer-outline"></ion-icon></li>
-        <li class="tablink" data-tab="tab3"><ion-icon name="cloud-outline"></ion-icon></li>
+        <li class="tablink" data-tab="tab2"><ion-icon name="earth-outline"></ion-icon></li>
+        <li class="tablink" data-tab="tab3"><ion-icon name="thermometer-outline"></ion-icon></li>
+        <li class="tablink" data-tab="tab4"><ion-icon name="cloud-outline"></ion-icon></li>
         
     </ul>
     <div class="contents">
@@ -20,9 +21,12 @@
             <span class="subtitle">지구 온난화의 원인인 물질의 연도별 변화와 그로 인한 영향</span>
         </div>
         <div class="content" id="tab2">
-            <canvas id="temperature_graph"></canvas>
+            <canvas id="temperature_graph_by_earth"></canvas>
         </div>
         <div class="content" id="tab3">
+            <canvas id="temperature_graph_by_seoul"></canvas>
+        </div>
+        <div class="content" id="tab4">
             <ul class="tabmenu_in">
                 <li class="tablink_in current" data-tab="month">월별</li>
                 <li class="tablink_in" data-tab="year">연도별</li>
@@ -43,7 +47,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js" integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/chartjs-chart-geo@3.5.2/build/index.umd.min.js"></script>
     <script>
-        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/GlobalTemperaturesByYear.csv').then(TemperatureGraph);
+        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/GlobalTemperaturesByYear.csv').then(TemperatureGraphbyEarth);
+        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/seoul_temperature_by_month.csv').then(TemperatureGraphbyMonth);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Month.csv').then(GreenhouseGraphbyMonth);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Year.csv').then(GreenhouseGraphbyYear);
     </script>
