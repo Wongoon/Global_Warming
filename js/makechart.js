@@ -78,22 +78,22 @@ function GreenhouseGraphbyMonth(csvdata) {
                 {
                     label: 'CH4',
                     data: data('CH4'),
-                    borderColor: '#ff8c55ff',
-                    backgroundColor: '#ff8c55db',
+                    borderColor: '#00aa00ff',
+                    backgroundColor: '#00aa00db',
                     pointRadius: 0
                 },
                 {
                     label: 'N2O',
                     data: data('N2O'),
-                    borderColor: '#ffff00ff',
-                    backgroundColor: '#ffff00db',
+                    borderColor: '#5555ffff',
+                    backgroundColor: '#5555ffdb',
                     pointRadius: 0
                 },
                 {
                     label: 'SF6',
                     data: data('SF6'),
-                    borderColor: '#5555ffff',
-                    backgroundColor: '#5555ffdb',
+                    borderColor: '#333333ff',
+                    backgroundColor: '#333333db',
                     pointRadius: 0
                 }
             ]
@@ -158,20 +158,20 @@ function GreenhouseGraphbyYear(csvdata) {
                 {
                     label: 'CH4',
                     data: data('CH4'),
-                    borderColor: '#ff8c55ff',
-                    backgroundColor: '#ff8c55db',
+                    borderColor: '#00aa00ff',
+                    backgroundColor: '#00aa00db',
                 },
                 {
                     label: 'N2O',
                     data: data('N2O'),
-                    borderColor: '#ffff00ff',
-                    backgroundColor: '#ffff00db',
+                    borderColor: '#5555ffff',
+                    backgroundColor: '#5555ffdb',
                 },
                 {
                     label: 'SF6',
                     data: data('SF6'),
-                    borderColor: '#5555ffff',
-                    backgroundColor: '#5555ffdb',
+                    borderColor: '#333333ff',
+                    backgroundColor: '#333333db',
                 }
             ]
         },
