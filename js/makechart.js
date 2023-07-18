@@ -166,7 +166,7 @@ function TemperaturebyEarth(csvdata) {
                         text: 'Surface Temperature Change by Country',
                         font: {
                             family: 'Pretendard',
-                            size: 16
+                            size: '25vw'
                         }
                     }
                 }
