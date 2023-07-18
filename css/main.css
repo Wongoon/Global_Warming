@@ -1,12 +1,12 @@
 @import url(reset.css);
 .contents{
     width: 100vw;
-    min-height: calc(100vh - 5vw);
+    min-height: calc(100vh - 3vw - 5px);
 }
 .content{
     display: none;
     width: 100vw;
-    height: calc(100vh - 5vw);
+    height: calc(100vh - 3vw - 5px);
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -21,5 +21,17 @@ div#tab1 .subtitle{
     font-size: 2vw;
 }
 .content canvas{
-    transition: none;
+    width: 90vw;
+    margin: 0 10px;
+}
+
+.content .main{
+    display: none;
+    height: calc(100vh - 6vw - 5px);
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.content .main.current{
+    display: flex;
 }

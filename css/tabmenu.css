@@ -2,6 +2,7 @@
 ul.tabmenu{
     display: flex;
     width: 100vw;
+    padding-top: 5px;
     justify-content: center;
     background: var(--header-clr);
 }
@@ -9,8 +10,8 @@ ul.tabmenu li.tablink{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 5vw;
-    height: 5vw;
+    width: 3vw;
+    height: 3vw;
     border: 3px solid transparent;
     border-bottom-color: var(--text-clr);
     cursor: pointer;
@@ -28,5 +29,32 @@ ul.tabmenu li.tablink:hover{
 }
 ul.tabmenu li.tablink.current ion-icon,
 ul.tabmenu li.tablink:hover ion-icon{
+    color: var(--primary-clr);
+}
+
+ul.tabmenu_in{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    background: var(--tabmenu-clr);
+}
+ul.tabmenu_in li.tablink_in{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 3vw;
+    border: 3px solid transparent;
+    border-bottom-color: var(--text-clr);
+    cursor: pointer;
+    margin: 0 3vw;
+    color: var(--text-clr);
+    font-size: 1.5vw;
+    text-align: center;
+    transition: border-bottom-color, color 0.3s ease;
+}
+ul.tabmenu_in li.tablink_in.current,
+ul.tabmenu_in li.tablink_in:hover{
+    border-bottom-color: var(--primary-clr);
     color: var(--primary-clr);
 }

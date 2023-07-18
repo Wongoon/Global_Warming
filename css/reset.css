@@ -18,7 +18,7 @@ body{
 }
 :root{
     --body-clr: #f6f5ff;
-    --sidebar-clr: #e4e9f7;
+    --tabmenu-clr: #e4e9f7;
     --primary-clr: #695cfe;
     --primary-clr-light: #e4e9f7;
     --toggle-clr: #fff;

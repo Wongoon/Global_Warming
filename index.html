@@ -23,7 +23,16 @@
             <canvas id="temperature_graph"></canvas>
         </div>
         <div class="content" id="tab3">
-            <canvas id="greenhousegas_graph"></canvas>
+            <ul class="tabmenu_in">
+                <li class="tablink_in current" data-tab="month">월별</li>
+                <li class="tablink_in" data-tab="year">연도별</li>
+            </ul>
+            <div class="main current" id="month">
+                <canvas id="greenhousegas_graph_by_month"></canvas>
+            </div>
+            <div class="main" id="year">
+                <canvas id="greenhousegas_graph_by_year"></canvas>
+            </div>
         </div>
     </div>
     <script src="js/tabmenu.js"></script>
@@ -35,7 +44,8 @@
     <script src="https://unpkg.com/chartjs-chart-geo@3.5.2/build/index.umd.min.js"></script>
     <script>
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/GlobalTemperaturesByYear.csv').then(TemperatureGraph);
-        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Year.csv').then(GreenhouseGraph);
+        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Month.csv').then(GreenhouseGraphbyMonth);
+        d3.csv('data/Greenhouse_Gas_Year.csv').then(GreenhouseGraphbyYear);
     </script>
 </body>
 </html>
