@@ -50,7 +50,7 @@ function TemperatureGraphbyEarth(csvdata) {
     });
 }
 
-function TemperatureMap(csvdata) {
+function TemperaturebyEarth(csvdata) {
     const url = "https://unpkg.com/world-atlas@2.0.2/countries-50m.json";
     fetch(url).then(result => result.json()).then((datapoint) => {
         const countries = ChartGeo.topojson.feature(datapoint, datapoint.objects.countries).features;
@@ -503,12 +503,6 @@ function GreenhouseGraphbyYear(csvdata) {
                     data: data('NF3'),
                     borderColor: '#4b5582ff',
                     backgroundColor: '#4b5582db',
-                },
-                {
-                    label: 'GHG',
-                    data: data('GHG'),
-                    borderColor: '#805580ff',
-                    backgroundColor: '#805580db',
                 }
             ]
         },
