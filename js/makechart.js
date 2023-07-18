@@ -100,6 +100,8 @@ function GreenhouseGraphbyMonth(csvdata) {
         },
         options: {
             interaction: {
+                mode: 'nearest',
+                axis: 'x',
                 intersect: false
             },
             responsive: true,
@@ -177,6 +179,8 @@ function GreenhouseGraphbyYear(csvdata) {
         },
         options: {
             interaction: {
+                mode: 'nearest',
+                axis: 'x',
                 intersect: false
             },
             responsive: true,
