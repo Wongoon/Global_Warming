@@ -49,12 +49,16 @@
             <ul class="tabmenu_in">
                 <li class="tablink_in greenhousegas_link current" data-tab="month">월별</li>
                 <li class="tablink_in greenhousegas_link" data-tab="year">연도별</li>
+                <li class="tablink_in greenhousegas_link" data-tab="kor_year">한국 연도별</li>
             </ul>
             <div class="main greenhousegas_main current" id="month">
                 <canvas id="greenhousegas_graph_by_month"></canvas>
             </div>
             <div class="main greenhousegas_main" id="year">
                 <canvas id="greenhousegas_graph_by_year"></canvas>
+            </div>
+            <div class="main greenhousegas_main" id="kor_year">
+                <canvas id="greenhousegas_graph_by_kor"></canvas>
             </div>
         </div>
     </div>
@@ -72,6 +76,7 @@
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/SeoulTemperaturesByYear.csv').then(TemperatureGraphbySeoulYear);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Month.csv').then(GreenhouseGraphbyMonth);
         d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/Greenhouse_Gas_Year.csv').then(GreenhouseGraphbyYear);
+        d3.csv('https://raw.githubusercontent.com/Wongoon/Global_Warming/main/data/kor_greenhouse_gas.csv').then(GreenhouseGraphbyKor);
     </script>
 </body>
 </html>

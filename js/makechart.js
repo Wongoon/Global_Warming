@@ -448,3 +448,81 @@ function GreenhouseGraphbyYear(csvdata) {
         },
     });
 }
+
+function GreenhouseGraphbyKor(csvdata) {
+    const label = Array.from(new Set(csvdata.map(d => d.year)));
+    function data(str) {
+        const d = csvdata.map(function (d) {
+            if (d.category == str) return d.value;
+            else return 2e9;
+        });
+        const a = d.filter(x => x < 2e9);
+        const m = Math.max(...a);
+        const b = a.map(x => x / m * 100);
+        return b;
+    }
+    const ctx = document.getElementById('greenhousegas_graph_by_kor');
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: label,
+            datasets: [
+                {
+                    label: 'CO2',
+                    data: data('CO2'),
+                    borderColor: '#ff5555ff',
+                    backgroundColor: '#ff5555db',
+                    pointRadius: 0
+                },
+                {
+                    label: 'CH4',
+                    data: data('CH4'),
+                    borderColor: '#00aa00ff',
+                    backgroundColor: '#00aa00db',
+                    pointRadius: 0
+                },
+                {
+                    label: 'N2O',
+                    data: data('N2O'),
+                    borderColor: '#5555ffff',
+                    backgroundColor: '#5555ffdb',
+                    pointRadius: 0
+                },
+                {
+                    label: 'SF6',
+                    data: data('SF6'),
+                    borderColor: '#333333ff',
+                    backgroundColor: '#333333db',
+                    pointRadius: 0
+                }
+            ]
+        },
+        options: {
+            interaction: {
+                mode: 'nearest',
+                axis: 'x',
+                intersect: false
+            },
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        font: {
+                            family: 'Pretendard',
+                            size: '15vw'
+                        }
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Greenhouse Gas Change by Month',
+                    font: {
+                        family: 'Pretendard',
+                        size: '25vw'
+                    }
+                }
+            }
+        },
+    });
+}
